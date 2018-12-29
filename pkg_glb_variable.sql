@@ -14,10 +14,12 @@ end pkg_glb_variable;
 Create or Replace Package Body pkg_glb_variable
 
 AS
-
+	dbms_application_info.set_module(module_name=>'Global Variable', Action=>'Starting Procedure1');
+	
 	Procedure proc1(from_date date)
 
 	AS
+		dbms_application_info.set_action(Action=>'Assigning variable');
 		
 		lv_sp1_from_date date := from_date;
 	
@@ -37,6 +39,8 @@ AS
 		
 	
   end proc1;
+  
+  	dbms_application_info.set_action(Action=>'Starting Procedure2');
 	
 	Procedure proc2(from_date date)
 
